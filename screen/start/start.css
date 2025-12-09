@@ -19,12 +19,16 @@ body {
 }
 
 #logout{
+    display: flex;
+  align-items: center; 
+  justify-content: center; 
     position: absolute;
+    font-size: 16px;
     top: 100px;
     right: 10px;
     width: 30%;
     height: 50px;
-    border-color: #00f7ff;
+    border-color: #000000;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
