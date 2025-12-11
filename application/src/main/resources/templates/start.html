@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>スタート</title>
+    <link rel="stylesheet" href="start.css">
+    <script src="../screenmove.js" defer></script>
+</head>
+<body>
+    <footer>
+    <button id="logout">ログアウト</button>
+    </footer>
+
+    <div id="container">
+    <h1><span th:text="${session.loginName}"></span>さんがログイン中</h1>
+      <a th:href="@{/game}">
+        <button id="matching">マッチング開始</button>
+     </a>
+
+     <a th:href="@{/rule}">
+        <button id="rule">ルール</button>
+     </a>
+
+     <a th:href="@{/score}">
+        <button id="score">戦績確認</button>
+     </a>
+    </div>
+
+</body>
+</html>

@@ -16,25 +16,18 @@ const diceWindow2 = document.querySelector('#diceWindow2');
 const diceWindow3 = document.querySelector('#diceWindow3');
 const diceStart = document.querySelector('#diceStart');
 const statusButton = document.querySelector('#status');
-
-if(btn){
-btn.addEventListener('click', () => {
-  
-  if (dice.classList.contains('moving')) {
-    dice.classList.remove('moving');
-    btn.textContent = 'スタート'; 
-  } else {
-    dice.classList.add('moving');
-    btn.textContent = 'ストップ'; 
-  }
-  
-})};
+const error1 = document.querySelector('#error-msg1');
+const error2 = document.querySelector('#error-msg2');
 
 if(showLoginButton){
 showLoginButton.addEventListener('click',(e) =>{
   e.preventDefault();
   loginForm.style.display = 'block';
   registerForm.style.display = 'none';
+   if(error1 || error2){
+    error1.style.display = 'none';
+    error2.style.display = 'none';
+  }
 })};
 
 if(showRegisterButton){
@@ -42,53 +35,57 @@ showRegisterButton.addEventListener('click',function(e){
   e.preventDefault();
   loginForm.style.display = 'none';
   registerForm.style.display = 'block';
-
+   if(error1 || error2){
+    error1.style.display = 'none';
+    error2.style.display = 'none';
+  }
+   
 })};
 
 if(gameEnd){
 gameEnd.addEventListener('click',function(){
-  window.location.href = '../result/result.html';
+  window.location.href = 'result.html';
 })};
 
 if(startButton){
 startButton.addEventListener('click',function(){
-  window.location.href = '../home/home.html';
+  window.location.href = 'home.html';
 })};
 
 if(matchingStart.length>0){
   matchingStart.forEach(function(button){
     button.addEventListener('click',function(){
-      window.location.href = "../start/start.html";
+      window.location.href = "start.html";
     })
   })
 }
 
 if(gameStart){
   gameStart.addEventListener('click',function(){
-    window.location.href = "../game/game.html" 
+    window.location.href = "game.html" 
   })
 };
 
 if(rule){
   rule.addEventListener('click',function(){
-    window.location.href = "../rule/rule.html" 
+    window.location.href = "rule.html" 
   })
 };
 
 if(score){
   score.addEventListener('click',function(){
-    window.location.href = "../score/score.html" 
+    window.location.href = "score.html" 
   })
 };
 
 if(logout){
   logout.addEventListener('click',function(){
     const logoutConfirm = window.confirm("ログアウトしますか？");
-
     if(logoutConfirm){
-       window.location.href = "../home/home.html" 
-    }else{
+      window.location.href= "/";
       
+    }else{
+      alert("ログアウトをキャンセルしました!!");
     }
   })
 };
@@ -119,7 +116,7 @@ if(diceStart){
       total += Math.floor(Math.random() * 6) + 1;
   }
     console.log('サイコロの結果', total);
-    alert(`user1は${total}マス進みました!!!`);
+    alert(`ユーザは${total}マス進みました!!!`);
   })
 };
 

@@ -55,7 +55,7 @@ input[type="password"] {
     box-sizing: border-box; 
 }
 
-input[type="submit"] {
+button[type="submit"] {
     width: 100%;
     padding: 12px;
     background-color: #1877f2; 
@@ -70,7 +70,7 @@ input[type="submit"] {
     transition: background-color 0.3s; 
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #01060c; 
 }
 

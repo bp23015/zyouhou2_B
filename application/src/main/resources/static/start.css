@@ -20,8 +20,8 @@ body {
 
 #logout{
     display: flex;
-  align-items: center; 
-  justify-content: center; 
+    align-items: center; 
+    justify-content: center; 
     position: absolute;
     font-size: 16px;
     top: 100px;
@@ -67,4 +67,10 @@ body {
 #matching:hover{
     background-color: #519bfd;
     transform: translateY(-5px);
+}
+
+a{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
 }
