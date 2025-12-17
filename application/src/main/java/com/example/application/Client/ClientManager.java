@@ -12,13 +12,14 @@ import jakarta.servlet.http.HttpSession;
 
 
 @Controller
-public class ClientController {
+public class ClientManager {
 
     @Autowired
     private AccountRepository repository;
 
     @GetMapping("/")
     public String home() {
+        
         return "home";
     }
 
