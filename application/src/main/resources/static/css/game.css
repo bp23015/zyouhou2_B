@@ -126,3 +126,27 @@ th, td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+.board-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            border-radius: 50%;
+            /* border: 1px dashed #ccc; ガイド線が必要ならコメントアウトを外してください */
+        }
+        .board-cell {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            margin-top: -20px; /* height/2 */
+            margin-left: -20px; /* width/2 */
+        }
