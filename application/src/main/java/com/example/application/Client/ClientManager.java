@@ -89,4 +89,19 @@ public class ClientManager {
         return "matchingwait";
     }
 
+    // //ClientCommunicaterからのメッセージを解く
+    // public void receiveScreenOrder(int dest,int task){
+    //     switch (task) {
+    //         //clientCommunicaterから接続成功通知が来た場合
+    //         case 10:
+    //             ClienttoClientManagementmessage massage= new ClienttoClientManagementmessage();
+    //             massage.getauthentication(dest);
+                
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+    // }
+
 }
