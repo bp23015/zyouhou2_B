@@ -2,6 +2,7 @@ package com.example.application.Client;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import com.google.gson.Gson;
 
 import jakarta.websocket.ClientEndpoint;
@@ -14,6 +15,7 @@ import java.net.URI;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @ClientEndpoint
 public class ClientCommunicater implements Runnable {
     // タスク番号、送られてきた際は初期値の0のまま(林)
@@ -30,6 +32,22 @@ public class ClientCommunicater implements Runnable {
     // クラスのフィールドをjsonにするためのインスタンス
     static Gson gson = new Gson();
     static int sampleIncrement = 0;
+
+    public static void main(String[] args) {
+        ClientCommunicater client = new ClientCommunicater();
+
+        Thread thread = new Thread(client, "ClientCommunicater");
+        thread.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(client::closeConnection));
+
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            client.closeConnection();
+        }
+    }
 
     // 接続を確立するメソッド
     public boolean establishConnection() {
