@@ -25,7 +25,7 @@ public class ClientCommunicater implements Runnable {
     // 通信を行うためのコンテナ
     static WebSocketContainer container;
     // 接続先(林)
-    static String serverEndpoint = "ws://localhost:8080/clientmanager";
+    static String serverEndpoint = "ws://localhost:8080/app/client-management";
     static int id = 1;
     // クラスのフィールドをjsonにするためのインスタンス
     static Gson gson = new Gson();
