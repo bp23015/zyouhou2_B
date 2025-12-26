@@ -1,8 +1,10 @@
-package com.example.application.Client;
+package com.example.application.Client.Controller;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import com.example.application.Client.Entity.ClientToClientManagementMessage;
 import com.google.gson.Gson;
 
 import jakarta.websocket.ClientEndpoint;
@@ -17,6 +19,7 @@ import java.net.URI;
 @AllArgsConstructor
 @NoArgsConstructor
 @ClientEndpoint
+
 public class ClientCommunicater implements Runnable {
     // タスク番号、送られてきた際は初期値の0のまま(林)
     private int taskNum = 10;

@@ -1,9 +1,10 @@
 package com.example.application.ClientManagementServer;
 
-import com.example.application.Client.ClientToClientManagementMessage;
 import com.example.application.ClientManagementServer.Message.ClientMessage;
 import com.example.application.ClientManagementServer.Message.ApplicationToClientManagementMessage;
 import com.google.gson.Gson;
+import com.example.application.Client.Entity.ClientToClientManagementMessage;
+import com.example.application.ClientManagementServer.AccountManagement;
 
 import jakarta.websocket.Session;
 
@@ -30,6 +31,7 @@ public class ClientManagementController {
 
     public void processApplicationMessage(String json, Session session) {
         ApplicationToClientManagementMessage msg = gson.fromJson(json, ApplicationToClientManagementMessage.class);
+
         System.out.println("[ClientManagementController] request: " + msg.getTaskName());
         switch (msg.getTaskName()) {
             case "MATCH_CREATED" -> handleMatchCreated(msg, session);
@@ -58,7 +60,6 @@ public class ClientManagementController {
         System.out.println("[HandleMatching] User " + msg.getUserName() + " requested matching.");
         matchingManagement.addUserToWaitList(session, msg.getUserName(), msg.getUserId());
     }
-
     private void handleMatchCreated(ApplicationToClientManagementMessage msg, Session session) {
         System.out.println("[HandleMatchCreated] Match created with ID: " + msg.getMatchId());
         communicationController.sendMessage(session, gson.toJson(msg));
