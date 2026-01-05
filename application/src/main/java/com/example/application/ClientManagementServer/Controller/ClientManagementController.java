@@ -1,5 +1,6 @@
-package com.example.application.ClientManagementServer;
+package com.example.application.ClientManagementServer.Controller;
 
+import com.example.application.ClientManagementServer.Entity.User;
 import com.example.application.ClientManagementServer.Message.ClientMessage;
 import com.example.application.ClientManagementServer.Message.ClientToClientManagementMessage;
 import com.google.gson.Gson;

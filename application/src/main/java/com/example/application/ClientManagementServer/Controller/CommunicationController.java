@@ -1,8 +1,9 @@
-package com.example.application.ClientManagementServer;
+package com.example.application.ClientManagementServer.Controller;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Component;
+
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 

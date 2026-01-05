@@ -1,4 +1,4 @@
-package com.example.application.ClientManagementServer;
+package com.example.application.ClientManagementServer.Controller;
 
 import java.util.*;
 

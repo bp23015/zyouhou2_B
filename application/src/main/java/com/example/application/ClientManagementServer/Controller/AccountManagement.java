@@ -1,6 +1,9 @@
-package com.example.application.ClientManagementServer;
+package com.example.application.ClientManagementServer.Controller;
 
 import org.springframework.web.bind.annotation.*;
+
+import com.example.application.ClientManagementServer.Entity.User;
+
 import org.springframework.http.ResponseEntity;
 import jakarta.annotation.PostConstruct;
 import java.util.Map;
