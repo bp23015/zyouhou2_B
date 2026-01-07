@@ -35,7 +35,6 @@ public class GameMap {
         squareList.put(18, new GameEvent("必修を落とした... 予定単位-2", -2, GameEvent.EFFECT_NONE));
 
     }
-
     /**
      * 指定された位置のイベントを取得する
      * 
