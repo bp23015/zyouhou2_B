@@ -54,4 +54,32 @@ public ResponseEntity<Map<String, Object>> autoJoin(@RequestParam String playerN
         System.out.println("Fetching status for room ID: " + roomId);
         return (room != null) ? ResponseEntity.ok(room) : ResponseEntity.notFound().build();
     }
+    @PostMapping("/register-room")
+    public ResponseEntity<String> registerRoomFromManagement(@RequestBody Map<String, Object> data) {
+    // 1. 部屋を作成
+    Room room = new Room();
+    room.setRoomId((String) data.get("roomId"));
+    System.out.println("[MatchingController] Registering room from management: " + room.getRoomId());
+    
+    // 2. プレイヤーリストを復元
+    List<Map<String, Object>> playersData = (List<Map<String, Object>>) data.get("players");
+    for (Map<String, Object> pData : playersData) {
+        Player player = new Player((String) pData.get("name"), (String) pData.get("color"));
+        player.setId((String) pData.get("id")); 
+        player.setEarnedUnits(0);
+        player.setExpectedUnits(25);
+        room.addPlayer(player);
+        System.out.println("[MatchingController] Added player: " + player.getName() + " (ID: " + player.getId() + ")");
+    }
+    
+    // 3. 共有の RoomManager に登録
+    RoomManager.instance.addRoom(room); 
+
+
+    System.out.println("[App Server] 管理サーバーから同期完了。RoomID: " + room.getRoomId());
+    for (Player p : room.getPlayers()) {
+        System.out.println("  - 同期プレイヤー: " + p.getName() + " (ID: " + p.getId() + ")");
+    }
+    return ResponseEntity.ok("Success");
+}
 }

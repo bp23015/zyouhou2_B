@@ -37,4 +37,9 @@ public class RoomManager {
                 .findFirst()
                 .orElse(null);
     }
+    
+    public void addRoom(Room room) {
+        activeRooms.put(room.getRoomId(), room);
+    }
+
 }

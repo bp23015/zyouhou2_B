@@ -40,6 +40,7 @@ public class GameManagementController {
                     boolean exists = room.getPlayers().stream().anyMatch(p -> p.getId().equals(playerId));
                     if (!exists) {
                         Player newPlayer = new Player(playerId, "red");
+                        newPlayer.setId(playerId);
                         room.getPlayers().add(newPlayer);
                         System.out.println("[Game] 部屋 " + roomId + " にプレイヤー " + playerId + " を追加しました。現在: " + room.getPlayers().size() + "人");
                     }
