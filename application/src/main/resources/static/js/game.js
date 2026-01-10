@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- 6. 初期化：現在の部屋の状態を取得 ---
     try {
-        const mgmtIp = "192.168.11.13"; 
+        const mgmtIp = "192.168.11.13"; // 管理サーバーのIP
         const res = await fetch(`http://${mgmtIp}:8082/api/matching/status?roomId=${roomId}`);
         const room = await res.json();
         setupPlayersUI(room.players);

@@ -73,6 +73,26 @@ public class AccountManagement {
         }
     }
 
+    @Path("/matching")
+public static class MatchingRest {
+    // 既存のマッチング管理クラスから情報を取る必要があります
+    private static final MatchingManagement matchingManagement = new MatchingManagement(); 
+    private final Gson gson = new Gson();
+
+    @Path("/status")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStatus(@QueryParam("roomId") String roomId) {
+        // MatchingManagementに実装されている部屋取得メソッドを呼び出す
+        // サンプルの MatchingController.java の中身を参考に実装します
+        Object room = matchingManagement.getRoomById(roomId); 
+        if (room != null) {
+            return Response.ok(gson.toJson(room)).build();
+        }
+        return Response.status(404).build();
+    }
+}
+
     // --- 内部ロジック (ClientManagementControllerからも利用可能) ---
     public User authenticate(String username, String password) {
         try {
