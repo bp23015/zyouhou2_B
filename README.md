@@ -15,9 +15,9 @@ WebSocket:ws://IPアドレス:8081
 REST API:http://IPアドレス:8081
 
 ## IPアドレスの調べ方
-コマンドプロンプトでipconfigと入力
+コマンドプロンプトでipconfigを実行
 
-Wireless LAN adapter Wi-Fiの欄のIPv4アドレスが自分のIDになる
+Wireless LAN adapter Wi-Fiの欄のIPv4アドレスが自分のIPアドレスになる
 
 
 ## 実行方法
@@ -44,6 +44,7 @@ CSSファイルは[src/main/resources/static/css]に入れる
 JSファイルは[src/main/resources/static/js]に入れる
 
 画像ファイルは[src/main/resources/static/images]に入れる
+
 
 
 
