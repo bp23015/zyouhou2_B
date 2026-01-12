@@ -1,12 +1,16 @@
 package com.example.application.ApplicationServer.Controller;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
-import com.example.application.Application;
+import com.example.application.WebSocketConfig;
 
 /**
  * アプリケーションサーバ専用の起動エントリ。
  */
+@SpringBootApplication(scanBasePackages = "com.example.application.ApplicationServer")
+@Import(WebSocketConfig.class)
 public class AppServerLauncher {
 
     public static void main(String[] args) {
@@ -16,6 +20,6 @@ public class AppServerLauncher {
             System.setProperty("spring.profiles.active", "app-server");
         }
 
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(AppServerLauncher.class, args);
     }
 }
