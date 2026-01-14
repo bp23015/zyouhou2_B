@@ -1,7 +1,15 @@
 package com.example.application.ClientManagementServer.Controller;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import com.google.gson.Gson;
+
 import jakarta.websocket.Session;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -64,7 +72,7 @@ public class MatchingManagement {
 
     private void sendRoomToAppServer(LocalRoom room) {
         try {
-            String appBase = "http://192.168.10.113:8081/api";
+            String appBase = "http://172.31.108.165:8081/api";
             String appServerUrl = appBase + "/matching/register-room";
             System.out.println("[Management] Sending room info to App Server at " + appServerUrl);
 
